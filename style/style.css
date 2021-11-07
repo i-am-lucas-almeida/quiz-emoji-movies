@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;700&display=swap');
+
+:root{
+    --font: 'chakra petch', sans-serif;
+    --gray: #E6E6E6;
+    --soft-gray: #D1CCCC;
+    --dark-gray: #35352C;
+    --soft-green: #377f86;
+    --dark-green: #1b5f65;
+    --blue: #4970d3;
+    --red: #e74c3c;
+    --dark-purple: #341c4f;
+    --purple: #bc15f4;
+    --orange: #ca5502;
+    --dark-orange: #893901;
+    --white: #ffffff;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{ 
+    background-color: hsl(223, 31%, 20%);
+    margin: 0 auto;
+    width: 100%;
+    height: 100vh;
+    padding: 2rem;
+    font-family: var(--font);
+    font-size: 1.6rem;
+    color: var(--dark-gray);
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.conteiner, .tela-resultados, .tela-inicio, .tela-sobre{
+    background-color: var(--white);
+    max-width: 100%;
+    width: 40rem;
+    height: 35rem;
+    padding: 2rem 3rem;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.tela-sobre{
+    display: none;
+}
+
+.conteiner-principal{
+    margin: 0 auto;
+    max-width: 100%;
+    width: 40rem;
+}
+
+.titulo{
+    color: var(--white);
+    font-size: 4rem;
+    font-weight: 600;
+    padding: 2rem 0;
+    text-align: center;
+    text-transform: uppercase;
+    border: 3px solid var(--white);
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/********************************************************/
+.botaoIniciar{
+    background-color: var(--dark-purple);
+    width: 12rem;
+    padding: 1rem;
+    font-size: 2rem;
+    font-weight: 600;
+    font-family: var(--font);
+    color: var(--white);
+    border-radius: 8px;
+    border: 3px solid var(--purple);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.botaoIniciar:hover{
+    transform: scale(0.98);
+}
+
+.conteiner{
+    display: none;
+    
+}
+
+.conteiner > .emojisDica {
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.input-resposta{
+    margin: 0 auto;
+    margin-bottom: 10px;
+    max-width: 100%;
+    width: 28rem;
+    padding: 1rem 2rem;
+    outline: none;
+    font-family: var(--font);
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 3px;
+    border: 2px solid var(--soft-gray);
+}
+
+.conteiner-btn{
+    display: grid;
+    justify-content: center;
+}
+
+.conteiner-btn > input {
+    width: 12rem;
+    padding: 1rem;
+    font-size: 2rem;
+    font-weight: 600;
+    font-family: var(--font);
+    color: var(--white);
+    border-radius: 8px;
+    border: 3px solid transparent;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.conteiner-btn > input:hover{
+    transform: scale(0.95);
+}
+
+.conteiner-btn > .btn-confirma{
+    background-color: var(--soft-green);
+    border-color: var(--dark-green);
+}
+
+.tela-resultados{
+    display: none;
+}
+
+.parag-chances{
+    margin-top: 20px;
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.span-chances{
+    color: var(--red);
+}
+
+/**************************************************/
+
+.tela-resultados > h2{
+    font-size: 3rem;
+}
+
+.tela-resultados > .emoji-area{
+    text-align: center;
+    font-size: 5rem;
+}
+
+.tela-resultados > p{
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.tela-resultados > p > .pontos-area{
+    color: var(--blue);
+    font-size: 4rem;
+    font-weight: 500;
+}
+
+.tela-resultados > input {
+    padding: 1rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    font-family: var(--font);
+    color: var(--white);
+    border-radius: 8px;
+    border: 3px solid transparent;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.tela-resultados > input{
+    background-color: var(--orange);
+    border-color: var(--dark-orange);
+}
+
+.tela-resultados > input:hover{
+    transform: scale(0.95);
+}
+
+/*********************************************************/
+
+@media (max-width: 430px) {
+
+    .conteiner, .tela-resultados, .tela-inicio{
+        width: 35rem;
+    }
+    
+    .conteiner-principal{
+        width: 35rem;
+    }
+    
+    
+
+
+    .conteiner > .emojisDica {
+        font-size: 3rem;
+    }
+
+}
