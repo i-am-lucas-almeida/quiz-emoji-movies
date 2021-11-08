@@ -45,7 +45,7 @@ body{
     max-width: 100%;
     width: 40rem;
     height: 35rem;
-    padding: 2rem 3rem;
+    padding: 2rem;
     display: grid;
     align-items: center;
     justify-content: center;
@@ -93,22 +93,32 @@ body{
     transform: scale(0.98);
 }
 
+/************************************************/
+
 .conteiner{
     display: none;
+    position: relative;
     
 }
 
+.conteiner > .conteiner-timer {
+    font-size: 2rem;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+
+}
+
 .conteiner > .emojisDica {
-    font-size: 4rem;
+    margin-bottom: -100px;
+    font-size: 3.5rem;
     text-align: center;
-    margin-bottom: 10px;
 }
 
 .input-resposta{
     margin: 0 auto;
-    margin-bottom: 10px;
+    margin-bottom: -50px;
     max-width: 100%;
-    width: 28rem;
     padding: 1rem 2rem;
     outline: none;
     font-family: var(--font);
@@ -124,7 +134,8 @@ body{
     justify-content: center;
 }
 
-.conteiner-btn > input {
+.conteiner-btn > .btn-confirma {
+    background-color: var(--soft-green);
     width: 12rem;
     padding: 1rem;
     font-size: 2rem;
@@ -132,35 +143,20 @@ body{
     font-family: var(--font);
     color: var(--white);
     border-radius: 8px;
-    border: 3px solid transparent;
+    border: 3px solid var(--dark-green);
     cursor: pointer;
     transition: .3s;
 }
 
-.conteiner-btn > input:hover{
+.conteiner-btn > .btn-confirma:hover{
     transform: scale(0.95);
 }
 
-.conteiner-btn > .btn-confirma{
-    background-color: var(--soft-green);
-    border-color: var(--dark-green);
-}
+/**************************************************/
 
 .tela-resultados{
     display: none;
 }
-
-.parag-chances{
-    margin-top: 20px;
-    font-size: 1.6rem;
-    font-weight: 600;
-}
-
-.span-chances{
-    color: var(--red);
-}
-
-/**************************************************/
 
 .tela-resultados > h2{
     font-size: 3rem;
@@ -216,9 +212,6 @@ body{
         width: 35rem;
     }
     
-    
-
-
     .conteiner > .emojisDica {
         font-size: 3rem;
     }

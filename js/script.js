@@ -108,6 +108,7 @@ const quiz = [
     {
         emojisOpcao: '🚪🦁🧙‍♀️',
         gabarito1: 'nárnia',
+        gabarito2: 'as crônicas de nárnia',
     },
 
     {
@@ -143,11 +144,6 @@ const quiz = [
     {
         emojisOpcao: '🧔🍺🚫👰',
         gabarito1: 'se beber não case',
-    },
-
-    {
-        emojisOpcao: '👨‍🍳🐀🍳',
-        gabarito1: 'ratatouille',
     },
 
     {
@@ -226,17 +222,9 @@ const navigation = () => {
 
     slide = Math.floor(Math.random() * (quiz.length));
 
-    if (contadorPontos < 150) { 
-
-        emojis.innerHTML = `<span class="emojis">${quiz[slide].emojisOpcao}</span>`;
-        respostaCorreta_1 = `${quiz[slide].gabarito1}`;
-        respostaCorreta_2 = `${quiz[slide].gabarito2}`;
-
-    } else {
-
-        telaResultados();
-
-    }
+    emojis.innerHTML = `<span class="emojis">${quiz[slide].emojisOpcao}</span>`;
+    respostaCorreta_1 = `${quiz[slide].gabarito1}`;
+    respostaCorreta_2 = `${quiz[slide].gabarito2}`;
 
 }
 
@@ -249,10 +237,18 @@ const telaInicio = document.getElementById("telaInicio");
 const telaPontos = document.getElementById("telaResultados");
 const telaSobre = document.getElementById("telaSobre");
 const campoResposta = document.getElementById("respostaUsuario");
+const somClock = document.getElementById("somClock");
+const timerCont = document.getElementById("timerCont");
+const conteinerTimer = document.getElementById("conteinerTimer");
 
-let numeroChances = 2;
+let valorTempo = 20;
 
 function iniciarQuiz() {
+
+    comecarTimer(valorTempo);
+
+    somClock.currentTime = 0.40;
+    somClock.play();
 
     conteiner.style.display = 'grid';
     telaInicio.style.display = 'none';
@@ -273,7 +269,9 @@ function telaResultados() {
     telaPontos.style.display = 'grid';
     document.getElementById("exibirPontos").innerHTML = (contadorPontos);
 
-    if (contadorPontos == 0) {
+    somClock.pause();
+
+    if (contadorPontos == 10) {
 
         document.getElementById("emojiPontos").innerHTML = '😭';
 
@@ -293,11 +291,11 @@ function telaResultados() {
 
         document.getElementById("emojiPontos").innerHTML = '😁';
 
-    } else if (contadorPontos > 100 && contadorPontos <= 120) {
+    } else if (contadorPontos > 100 && contadorPontos <= 150) {
 
         document.getElementById("emojiPontos").innerHTML = '🤩';
 
-    } else if (contadorPontos > 120) {
+    } else if (contadorPontos > 150) {
 
         document.getElementById("emojiPontos").innerHTML = '🤯';
 
@@ -307,7 +305,7 @@ function telaResultados() {
 
 /*****************************************************/
 
-document.getElementById("chances").innerHTML = (numeroChances);
+const somCheck = document.getElementById("somCheck");
 
 function verificaResposta() {
 
@@ -319,28 +317,36 @@ function verificaResposta() {
 
         contadorPontos += 10;
 
-        navigation();
-        campoResposta.focus();
-        campoResposta.style.borderColor = '#D1CCCC';
-        document.getElementById("respostaUsuario").value = '';
-
-    } else {
-
-        numeroChances -= 1;
-        document.getElementById("respostaUsuario").value = '';
-        campoResposta.focus();
-        campoResposta.style.borderColor = '#e74c3c';
-        document.getElementById("chances").innerHTML = (numeroChances);
-
-        if (numeroChances == 0) {
+        if (contadorPontos == 200) {
 
             telaResultados();
         
+        } else {
+
+            clearInterval(contador);
+            comecarTimer(valorTempo);
+
+            navigation();
+            campoResposta.focus();
+            campoResposta.style.borderColor = '#D1CCCC';
+            document.getElementById("respostaUsuario").value = '';
+
+            somCheck.currentTime = 0.25;
+            somCheck.play();
+
         }
+
+    } else {
+
+        document.getElementById("respostaUsuario").value = '';
+        campoResposta.focus();
+        campoResposta.style.borderColor = '#e74c3c';
 
     }
 
 }
+
+/*************************************************************/
 
 document.addEventListener('keypress', function(e){
 
@@ -351,3 +357,43 @@ document.addEventListener('keypress', function(e){
     }
 
  }, false);
+
+ /************************************************************/
+
+function somClick () {
+
+        const somClick = document.getElementById("somClick");
+        somClick.currentTime = 0.20;
+        somClick.play();
+
+}
+
+/************************************************************/
+
+let contador;
+
+function comecarTimer(time) {
+
+    contador = setInterval(timer, 1000);
+
+    function timer() {
+
+        conteinerTimer.style.color = '#35352C';
+        timerCont.textContent = time;
+        time--;
+
+        if (time < 10) {
+
+            conteinerTimer.style.color = '#e74c3c';
+
+        } 
+
+        if (time == 0) {
+
+            telaResultados();
+
+        }
+
+    }
+
+}

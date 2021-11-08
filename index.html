@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/style.css">
+    <script src="https://kit.fontawesome.com/26783a927a.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 
@@ -56,7 +57,13 @@
 
             </div>
 
-            <p class="parag-chances">Número de vidas: <span class="span-chances" id="chances"></span></p>
+            <div class="conteiner-timer" id="conteinerTimer">
+
+                <i class="fas fa-stopwatch"></i>
+
+                <span id="timerCont" class="campo-timer">20</span>
+
+            </div>
 
         </div>
 
@@ -66,13 +73,17 @@
 
             <span id="emojiPontos" class="emoji-area"></span>
 
-            <p><span id="exibirPontos" class="pontos-area">123</span> pontos</p>
+            <p><span id="exibirPontos" class="pontos-area">000</span> pontos</p>
 
             <input type="button" value="Voltar ao início" onClick="window.location.reload()">
 
         </div>
 
     </section>
+
+    <audio src="audios/click-sound.mp3" id="somClick"></audio>
+    <audio src="audios/check-sound.mp3" id="somCheck"></audio>
+    <audio src="audios/clock-sound.mp3" id="somClock" loop></audio>
 
     <script src="js/script.js"></script>
     
