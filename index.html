@@ -6,20 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/style.css">
     <script src="https://kit.fontawesome.com/26783a927a.js" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <link rel="shortcut icon" href="img/favicom.png" type="image/x-icon">
+    <title>Descubra o Filme | Quiz</title>
 </head>
 
 <body>
 
     <section class="conteiner-principal">
 
-        <h1 class="titulo">Descubra o filme</h1>
-
         <div class="tela-inicio" id="telaInicio">
 
-            <input type="button" value="Jogar" onclick="iniciarQuiz()" class="botaoIniciar">
+            <h1 class="titulo">Descubra o filme <span id="randomEmojis">🙂</span></h1>
 
-            <input type="button" value="Sobre" onclick="mostrarSobre()" class="botaoSobre">
+            <aside>
+
+                <input type="button" value="Jogar" onclick="iniciarQuiz()" class="botaoIniciar">
+
+                <input type="button" value="Sobre" onclick="mostrarSobre()" class="botaoSobre">
+
+            </aside>
 
         </div>
 
@@ -33,11 +38,21 @@
 
                 <li>A cada resposta correta você soma +10 pontos</li>
 
-                <li>A cada resposta incorreta você perde 1 vida</li>
+                <li>Se o tempo acabar você está fora!</li>
 
             </ul>
 
-            <input type="button" value="Voltar ao início" onClick="window.location.reload()">
+            <p>
+                Desenvolvido por 
+                <a href="https://github.com/i-am-lucas-almeida/quiz-emoji-movies" target="_blank">
+
+                    <i class="fa fa-github"></i>
+                    Lucas
+
+                </a>
+            </p>
+
+            <input type="button" value="Voltar ao início" onClick="window.location.reload()" class="botaoVoltar">
 
         </div>
 
@@ -61,7 +76,7 @@
 
                 <i class="fas fa-stopwatch"></i>
 
-                <span id="timerCont" class="campo-timer">20</span>
+                <span id="timerCont" class="campo-timer">15</span>
 
             </div>
 
@@ -75,13 +90,12 @@
 
             <p><span id="exibirPontos" class="pontos-area">000</span> pontos</p>
 
-            <input type="button" value="Voltar ao início" onClick="window.location.reload()">
+            <input type="button" value="Voltar ao início" onClick="window.location.reload()" class="botaoVoltar_2">
 
         </div>
 
     </section>
 
-    <audio src="audios/click-sound.mp3" id="somClick"></audio>
     <audio src="audios/check-sound.mp3" id="somCheck"></audio>
     <audio src="audios/clock-sound.mp3" id="somClock" loop></audio>
 

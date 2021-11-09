@@ -5,14 +5,17 @@
     --gray: #E6E6E6;
     --soft-gray: #D1CCCC;
     --dark-gray: #35352C;
-    --soft-green: #377f86;
-    --dark-green: #1b5f65;
-    --blue: #4970d3;
-    --red: #e74c3c;
-    --dark-purple: #341c4f;
+    --soft-green: #2BA84A;
+    --dark-green: #248232;
+    --blue: #0081AF;
+    --dark-blue: #14213D;
+    --red: #FF312E;
+    --dark-purple: #58077d;
     --purple: #bc15f4;
     --orange: #ca5502;
-    --dark-orange: #893901;
+    --dark-orange: #BF3100;
+    --yellow: #FCA311;
+    --dark-yellow: #bd7400; 
     --white: #ffffff;
 }
 
@@ -27,7 +30,7 @@ html{
 }
 
 body{ 
-    background-color: hsl(223, 31%, 20%);
+    background-color: var(--dark-blue);
     margin: 0 auto;
     width: 100%;
     height: 100vh;
@@ -62,21 +65,27 @@ body{
     width: 40rem;
 }
 
+/********************************************************/
+
+.tela-inicio > aside {
+    margin-top: -80px;
+    display: flex;
+    justify-content: center;
+}
+
 .titulo{
-    color: var(--white);
+    color: var(--dark-blue);
     font-size: 4rem;
     font-weight: 600;
-    padding: 2rem 0;
     text-align: center;
     text-transform: uppercase;
-    border: 3px solid var(--white);
     border-radius: 8px;
     margin-bottom: 20px;
 }
 
-/********************************************************/
 .botaoIniciar{
     background-color: var(--dark-purple);
+    margin-right: 8px;
     width: 12rem;
     padding: 1rem;
     font-size: 2rem;
@@ -95,6 +104,59 @@ body{
 
 /************************************************/
 
+.botaoSobre, .botaoVoltar{
+    background-color: var(--yellow);
+    margin-left: 8px;
+    width: 12rem;
+    padding: 1rem;
+    font-size: 2rem;
+    font-weight: 600;
+    font-family: var(--font);
+    color: var(--white);
+    border-radius: 8px;
+    border: 3px solid var(--dark-yellow);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.botaoSobre:hover, .botaoVoltar:hover, .botaoVoltar_2:hover{
+    transform: scale(0.98);
+}
+
+.botaoVoltar{
+    margin: 0 auto;
+    background-color: var(--orange);
+    border-color: var(--dark-orange);
+    width: 18rem;
+    font-size: 1.6rem;
+}
+
+.tela-sobre > ul > h2{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.tela-sobre > ul{
+    padding: 0 2rem;
+    text-align: justify;
+    font-size: 1.5rem;
+}
+
+.tela-sobre > ul > li{
+    padding: 10px 0;
+}
+
+.tela-sobre > p{
+
+    font-weight: 600;
+}
+
+.tela-sobre > p > a{
+    color: var(--dark-gray);
+}
+
+/***********************************************/
+
 .conteiner{
     display: none;
     position: relative;
@@ -102,7 +164,7 @@ body{
 }
 
 .conteiner > .conteiner-timer {
-    font-size: 2rem;
+    font-size: 2.3rem;
     position: absolute;
     top: 30px;
     right: 30px;
@@ -111,7 +173,7 @@ body{
 
 .conteiner > .emojisDica {
     margin-bottom: -100px;
-    font-size: 3.5rem;
+    font-size: 4rem;
     text-align: center;
 }
 
@@ -214,6 +276,30 @@ body{
     
     .conteiner > .emojisDica {
         font-size: 3rem;
+    }
+
+}
+
+@media (max-width: 375px) {
+
+    .conteiner, .tela-resultados, .tela-inicio{
+        width: 30rem;
+    }
+    
+    .conteiner-principal{
+        width: 30rem;
+    }
+    
+    .conteiner > .emojisDica {
+        font-size: 3rem;
+    }
+
+    .titulo{
+        font-size: 3.5rem;
+    }
+
+    .botaoIniciar, .botaoSobre{
+        width: 10rem;
     }
 
 }

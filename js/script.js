@@ -214,6 +214,8 @@ const quiz = [
 
 ];
 
+/*Função que gera as alternativas*/
+
 let slide;
 let respostaCorreta = '';
 let contadorPontos = 0;
@@ -230,7 +232,7 @@ const navigation = () => {
 
 navigation();
 
-/*************************************************/
+/*Função para iniciar o Quiz*/
 
 const conteiner = document.getElementById("conteiner");
 const telaInicio = document.getElementById("telaInicio");
@@ -241,7 +243,7 @@ const somClock = document.getElementById("somClock");
 const timerCont = document.getElementById("timerCont");
 const conteinerTimer = document.getElementById("conteinerTimer");
 
-let valorTempo = 20;
+let valorTempo = 15;
 
 function iniciarQuiz() {
 
@@ -256,12 +258,16 @@ function iniciarQuiz() {
 
 }
 
+/*Função para exibir a tela de regras e sobre*/
+
 function mostrarSobre() {
 
     telaInicio.style.display = 'none';
     telaSobre.style.display = 'grid';
 
 }
+
+/*Função para exibir a tela de resultados*/
 
 function telaResultados() {
 
@@ -271,7 +277,7 @@ function telaResultados() {
 
     somClock.pause();
 
-    if (contadorPontos == 10) {
+    if (contadorPontos == 0) {
 
         document.getElementById("emojiPontos").innerHTML = '😭';
 
@@ -281,7 +287,7 @@ function telaResultados() {
 
     } else if (contadorPontos > 30 && contadorPontos <= 50) {
 
-        document.getElementById("emojiPontos").innerHTML = '😐';
+        document.getElementById("emojiPontos").innerHTML = '🙂';
 
     } else if (contadorPontos > 50 && contadorPontos <= 80) {
 
@@ -303,7 +309,7 @@ function telaResultados() {
 
 }
 
-/*****************************************************/
+/*Função para verificar a resposta*/
 
 const somCheck = document.getElementById("somCheck");
 
@@ -317,36 +323,28 @@ function verificaResposta() {
 
         contadorPontos += 10;
 
-        if (contadorPontos == 200) {
+        clearInterval(contador);
+        comecarTimer(valorTempo);
 
-            telaResultados();
-        
-        } else {
+        navigation();
+        campoResposta.focus();
+        campoResposta.style.borderColor = '#D1CCCC';
+        document.getElementById("respostaUsuario").value = '';
 
-            clearInterval(contador);
-            comecarTimer(valorTempo);
-
-            navigation();
-            campoResposta.focus();
-            campoResposta.style.borderColor = '#D1CCCC';
-            document.getElementById("respostaUsuario").value = '';
-
-            somCheck.currentTime = 0.25;
-            somCheck.play();
-
-        }
+        somCheck.currentTime = 0.25;
+        somCheck.play();
 
     } else {
 
         document.getElementById("respostaUsuario").value = '';
         campoResposta.focus();
-        campoResposta.style.borderColor = '#e74c3c';
+        campoResposta.style.borderColor = '#FF312E';
 
     }
 
 }
 
-/*************************************************************/
+/*Fazer com que o botão 'enter' ative a função 'confirmar'*/
 
 document.addEventListener('keypress', function(e){
 
@@ -356,19 +354,9 @@ document.addEventListener('keypress', function(e){
 
     }
 
- }, false);
+}, false);
 
- /************************************************************/
-
-function somClick () {
-
-        const somClick = document.getElementById("somClick");
-        somClick.currentTime = 0.20;
-        somClick.play();
-
-}
-
-/************************************************************/
+/*Contador Regressivo*/
 
 let contador;
 
@@ -384,11 +372,12 @@ function comecarTimer(time) {
 
         if (time < 10) {
 
-            conteinerTimer.style.color = '#e74c3c';
+            conteinerTimer.style.color = '#FF312E';
 
         } 
 
-        if (time == 0) {
+        //se o timer chegar em 0 chama a função telaResultados()
+        if (time == (-2)) {
 
             telaResultados();
 
@@ -397,3 +386,76 @@ function comecarTimer(time) {
     }
 
 }
+
+/*Função gerar emojis aleatórios na tela inicial*/
+
+const randomEmojis = document.getElementById("randomEmojis");
+
+const emoji = [
+
+    {
+        emojis:'😀',
+    },
+
+    {
+        emojis:'😂',
+    },
+
+    {
+        emojis:'😎',
+    },
+
+    {
+        emojis:'🤩',
+    },
+
+    {
+        emojis:'😜',
+    },
+
+    {
+        emojis:'🤡',
+    },
+
+    {
+        emojis:'😍',
+    },
+
+    {
+        emojis:'😲',
+    },
+
+    {
+        emojis:'🤠',
+    },
+
+    {
+        emojis:'🙈',
+    },
+
+];
+
+let emojiSlide;
+
+function randomEmoji(time) {
+
+    contador = setInterval(timer, 1000);
+
+    function timer() {
+
+        emojiSlide = Math.floor(Math.random() * (emoji.length));
+
+        randomEmojis.textContent = emoji[emojiSlide].emojis;
+        time++;
+
+    }
+
+}
+
+/*Chama a função randomEmoji() quando a página é carraegada*/
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    randomEmoji();
+    
+});

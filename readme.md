@@ -1,7 +1,4 @@
-# Urgente:
-* configurar a seção de regras;
-* melhorar o design;
+# Descubra o Filme | Quiz
 
-# Pode esperar:
-*tentar inserir um cronômetro;
-* tentar inserir sons;
+* Um desafio de advinhação com emojis;
+* Confira o projeto aqui 👉 https://quiz-descubra-o-filme.netlify.app/
